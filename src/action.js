@@ -1,6 +1,8 @@
-function Action(){
-    this.effects = [
-        //{"name":"food" , "solo":false , "value": 10,"variable":2},
-        //{"name":"sleep", "solo":false , "value":-10,"variable":2}
-    ]
-}   
+function Action(name, gaugeName, solo, value, variation){
+    this.name = name;
+
+    this.gauge = gaugeName;
+    this.solo = solo;
+    this.value = value;
+    this.variation = variation
+}
