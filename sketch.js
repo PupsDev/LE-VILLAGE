@@ -1,7 +1,7 @@
 let village;
 
-let nbVillager = 32;
-let actionRate = 10; //frame entre 2 actions
+let nbVillager = 20;
+let actionRate = 30; //frame entre 2 actions
 
 let button;
 
@@ -19,11 +19,16 @@ function setup() {
     village.addGauge (new Gauge("water" ,100,50,5));
     village.addGauge (new Gauge("rest"  ,100,50,5));
     village.addGauge (new Gauge("health",100,50,5));
-    village.addGauge (new Gauge("fate"  ,100,50,5));
+    village.addGauge (new Gauge("faith" ,100,50,5));
 
-    village.addAction(new Action("hunt"        , "food" , false, 500, 100));
-    village.addAction(new Action("lookForWater", "water", false, 500, 100));
-    village.addAction(new Action("sleep"       , "rest" , true , 90 , 10));
+    let soloReward  = 20;
+    let multiReward = 50; 
+
+    village.addAction(new Action("hunt"        , "food"   , false, multiReward   , multiReward/10, "rest", 10));
+    village.addAction(new Action("lookForWater", "water"  , false, multiReward   , multiReward/10));
+    village.addAction(new Action("cureVillage" , "health" , false, multiReward   , multiReward/10));
+    village.addAction(new Action("pray"        , "faith"  , true , soloReward    , soloReward /10));
+    village.addAction(new Action("sleep"       , "rest"   , true , soloReward    , soloReward /10));
 
     village.generateVillagers(nbVillager);
   }
@@ -37,8 +42,6 @@ function draw() {
   if(frameCount % actionRate == 0){
     village.discussionStep();
   }
-
-
 
   village.draw          (0          ,0 ,width*0.85,height*0.9);
   village.drawBlackboard(width*0.85 ,0 ,width*0.15,height*0.9);

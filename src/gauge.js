@@ -3,7 +3,7 @@ let defaultColors = {
     "water": [38 ,34 ,240],
     "rest":  [192,188,194],
     "health":[250,60 ,44],
-    "fate":  [250,219,83],
+    "faith":  [250,219,83],
 }
 
 function randomColor(){
@@ -13,7 +13,7 @@ function randomColor(){
 function Gauge(name, maxVal, value, decreaseRate){
     this.name = name;
     this.max = maxVal;
-    this.value = random(maxVal);
+    this.value = maxVal*0.9 + random(maxVal*0.1);
     this.decreaseRate = decreaseRate;
     this.color;
 

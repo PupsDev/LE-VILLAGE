@@ -13,6 +13,8 @@ function Village(){
     this.nextVillager = 0;
     this.discussionTurnCount = 0;
 
+    this.turnSurvided;
+
     this.addGauge = function(gag){
         this.gauges.push(gag);
     }

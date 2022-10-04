@@ -39,6 +39,7 @@ function Villager(){
             this.blackBoard.push(new MessageAction(this.name,this.actionPool[parseInt(random(this.actionPool.length))]));
         }
     }
+    
     this.takeDecision = function(){
         this.nextAction = this.actionPool[parseInt(random(this.actionPool.length))].name;
     }
